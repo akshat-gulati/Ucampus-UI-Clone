@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from './Header';
+import GymAndUniform from './GymAndUniform';
 
 const Ucampus = () => {
   const data2 = [
@@ -76,9 +77,13 @@ const Ucampus = () => {
     <LinearGradient colors={['#E42125', '#FFFFFF', '#FFFFFF']}style={styles.linearGradient}>
       <SafeAreaView  style = {styles.container}>
         <Header/>
-
-
+        <ScrollView style={{backgroundColor: "#F1F1F5"}}>
+          <View style={{flexDirection: 'row', justifyContent: "space-around"}}>
+          <GymAndUniform />
+          <GymAndUniform />
+          </View>
         
+        </ScrollView>
       </SafeAreaView>
       </LinearGradient>
     )
@@ -89,11 +94,12 @@ const Ucampus = () => {
   const styles = StyleSheet.create({
     container:{
       flex:1,
-      padding: 5,
+      // padding: 5,
       // backgroundColor:"red"
 
     },
     header:{
+
 
     },
     linearGradient: {

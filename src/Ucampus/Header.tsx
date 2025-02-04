@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     container: {
         padding: 5,
         gap: 15,
+        margin: 5
 
 
     },
@@ -93,8 +94,21 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     umoneyImage: {
-        width: 23, height: 23, objectFit: "cover", tintColor: "white",
+        width: 23, 
+        height: 23, 
+        objectFit: "cover", 
+        tintColor: "white",
         marginRight: 10,
     },
-    bendStyler: { backgroundColor: "white", height: 40, width: "106%", left: -9, bottom: -9, position: 'absolute', borderTopStartRadius: 30, borderTopEndRadius: 30 }
+
+    bendStyler: { 
+        backgroundColor: "white", 
+        height: 40, 
+        width: "106%", 
+        left: -9, 
+        bottom: -9, 
+        position: 'absolute', 
+        borderTopStartRadius: 30, 
+        borderTopEndRadius: 30 
+    }
 })
