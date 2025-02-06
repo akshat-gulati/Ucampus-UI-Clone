@@ -6,6 +6,7 @@ import Header from './Header';
 import GymAndUniform from './GymAndUniform';
 import Highlight from './Highlight';
 import Collections from './Collections';
+import Trending from './Trending';
 
 const Ucampus = () => {
   const data2 = [
@@ -86,6 +87,7 @@ const Ucampus = () => {
           </View>
         <Highlight/>
         <Collections/>
+        <Trending/>
         </ScrollView>
       </SafeAreaView>
       </LinearGradient>
