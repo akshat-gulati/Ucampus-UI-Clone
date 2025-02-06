@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from './Header';
 import GymAndUniform from './GymAndUniform';
+import Highlight from './Highlight';
 
 const Ucampus = () => {
   const data2 = [
@@ -82,7 +83,7 @@ const Ucampus = () => {
           <GymAndUniform />
           <GymAndUniform />
           </View>
-        
+        <Highlight/>
         </ScrollView>
       </SafeAreaView>
       </LinearGradient>
