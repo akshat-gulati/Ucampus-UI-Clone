@@ -62,13 +62,14 @@ export default Trending
 
 const styles = StyleSheet.create({
     container: {
-        gap:10
+        marginTop:30,
 
     },
     titleComponent: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        marginBottom:20
     },
     text: {
         fontSize: 18,
