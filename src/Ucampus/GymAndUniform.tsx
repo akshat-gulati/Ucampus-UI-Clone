@@ -4,17 +4,11 @@ import React from 'react'
 const GymAndUniform = () => {
   return (
     <View style={styles.container}>
-      <View>
+      <View style={{width:90}}>
         <Text style={{ fontSize: 20 }}>Gym</Text>
-        <Text style={{ color: "grey" }}>Get Membership</Text>
+        <Text style={{ color: "grey", fontSize:11 }}>Get Membership</Text>
       </View>
-
-      <Image style={{ height: 80, width: 80 }} source={require('../Assets/gym.gif')} />
-
-
-
-
-
+      <Image style={{ height: 70, width: 70 }} source={require('../Assets/gym.gif')} />
     </View>
   )
 }
@@ -23,13 +17,13 @@ export default GymAndUniform
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
+    marginVertical:10,
     padding: 5,
     backgroundColor: "white",
     flexDirection: "row",
     gap: 5,
     height: 90,
-    width: 200,
+    width: 180,
     shadowColor: "grey",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 9,
