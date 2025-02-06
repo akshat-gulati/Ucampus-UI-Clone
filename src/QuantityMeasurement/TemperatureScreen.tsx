@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const LengthScreen = (navigate) => {
+const TemperatureScreen = () => {
   return (
     <View>
-      <Text>LengthScreen</Text>
+      <Text>TemperatureScreen</Text>
     </View>
   )
 }
 
-export default LengthScreen
+export default TemperatureScreen
 
 const styles = StyleSheet.create({})

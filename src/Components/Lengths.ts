@@ -14,6 +14,6 @@ function convertLength(value: number, fromUnit: LengthUnit, toUnit: LengthUnit):
     return convertedValue;
 }
 
-// Example usage:
+
 const lengthInKilometers = convertLength(5, 'miles', 'kilometers');
 console.log(lengthInKilometers);

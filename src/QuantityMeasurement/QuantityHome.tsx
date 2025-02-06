@@ -1,12 +1,15 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
+import LengthScreen from './LengthScreen'
+import { useNavigation } from '@react-navigation/native'
 
 const QuantityHome = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.mainContainer}>
     <Image style={styles.bgImage} source={require('../Assets/project.jpg')} />
     <View style={styles.container}>
-      <Text style={styles.textStyle}>Length</Text>
+      <Text style={styles.textStyle} onPress={()=>navigation.navigate("LengthScreen")}> Length </Text>
       <Text style={styles.textStyle}>Weight</Text>
       <Text style={styles.textStyle}>Temperature</Text>
     </View>

@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const LengthScreen = (navigate) => {
+const WeightScreen = () => {
   return (
     <View>
-      <Text>LengthScreen</Text>
+      <Text>WeightScreen</Text>
     </View>
   )
 }
 
-export default LengthScreen
+export default WeightScreen
 
 const styles = StyleSheet.create({})
