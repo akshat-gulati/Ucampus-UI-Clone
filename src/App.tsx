@@ -4,10 +4,11 @@ import Hooks from './Hooks/Hooks'
 import Gradient from './Gradient'
 import AsyncStoragee from './AsyncStoragee'
 import Navigation from './Navigation'
+import Ucampus from './Ucampus/Ucampus'
 
 const App = () => {
   return (
-    <Navigation/>
+    <Ucampus/>
   )
 }
 
@@ -15,7 +16,7 @@ export default App
 
 const styles = StyleSheet.create({
   container:{
-    flex:1
+    flex:1,
   }
 
 })

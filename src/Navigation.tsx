@@ -11,16 +11,16 @@ import LengthScreen from './QuantityMeasurement/LengthScreen';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-// function MyTabs() {
-//     return (<NavigationContainer >
-//         <Tab.Navigator>
-//             <Tab.Screen name="Quantity Measurement" component={StackNavigator} />
-//             <Tab.Screen name="Weight" component={Ucampus} options={{ headerShown: false }} />
-//         </Tab.Navigator>
-//     </NavigationContainer>
+function MyTabs() {
+    return (<NavigationContainer >
+        <Tab.Navigator>
+            <Tab.Screen name="Quantity Measurement" options={{ headerShown: false }} component={Ucampus} />
+            <Tab.Screen name="Weight" component={Ucampus} options={{ headerShown: false }} />
+        </Tab.Navigator>
+    </NavigationContainer>
 
-//     );
-// }
+    );
+}
 
 function StackNavigator() {
     return (
@@ -36,4 +36,4 @@ function StackNavigator() {
     )
   }
 
-export default StackNavigator
+export default MyTabs

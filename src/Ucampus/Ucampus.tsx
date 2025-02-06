@@ -5,6 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Header from './Header';
 import GymAndUniform from './GymAndUniform';
 import Highlight from './Highlight';
+import Collections from './Collections';
 
 const Ucampus = () => {
   const data2 = [
@@ -84,6 +85,7 @@ const Ucampus = () => {
           <GymAndUniform />
           </View>
         <Highlight/>
+        <Collections/>
         </ScrollView>
       </SafeAreaView>
       </LinearGradient>
@@ -95,8 +97,7 @@ const Ucampus = () => {
   const styles = StyleSheet.create({
     container:{
       flex:1,
-      // padding: 5,
-      // backgroundColor:"red"
+      marginTop:50
 
     },
     header:{
@@ -105,7 +106,7 @@ const Ucampus = () => {
     },
     linearGradient: {
       flex: 1,
-      position:"relative"
+      position:"relative",
     },
 
 

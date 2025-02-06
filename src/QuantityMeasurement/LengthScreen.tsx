@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView, Image, Touchable, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Keyboard, Dimensions } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { UnitType, conversionFactors, convertLength } from '../Components/Lengths'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { UnitType, conversionFactors, convertLength } from '../Components/Lengths';
 
+const { width, height } = Dimensions.get('window');
 const LengthScreen = () => {
   const [value, setValue] = useState('');
   const [fromUnit, setFromUnit] = useState<UnitType>('meters');
@@ -20,17 +22,13 @@ const LengthScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAwareScrollView contentContainerStyle={styles.container}>
       <Image style={{ position: 'absolute', opacity: 0.1 }} source={require('../Assets/length.jpg')} />
-      <Text style={styles.title}> Length Converter</Text>
+      <Text style={styles.title}>Length Converter</Text>
       <View style={styles.pickerView}>
         <View style={styles.eachPicker}>
-          <Text style={{ fontSize: 20, color: 'grey' }}>Convert From</Text>
-          <Picker
-            selectedValue={fromUnit}
-            style={styles.picker}
-            onValueChange={(itemValue: UnitType) => setFromUnit(itemValue)}
-          >
+          <Text style={{ fontSize: width * 0.045, color: 'grey' }}>Convert From</Text>
+          <Picker selectedValue={fromUnit} style={styles.picker} onValueChange={(itemValue: UnitType) => setFromUnit(itemValue)}>
             <Picker.Item label="Meters" value="meters" />
             <Picker.Item label="Kilometers" value="kilometers" />
             <Picker.Item label="Miles" value="miles" />
@@ -38,10 +36,9 @@ const LengthScreen = () => {
             <Picker.Item label="Inches" value="inches" />
           </Picker>
         </View>
-
         <View style={styles.eachPicker}>
-          <Text style={{ fontSize: 20, color: 'grey' }}>Convert To</Text>
-          <Picker selectedValue={toUnit} style={styles.picker} onValueChange={(itemValue: UnitType) => setToUnit(itemValue)} >
+          <Text style={{ fontSize: width * 0.045, color: 'grey' }}>Convert To</Text>
+          <Picker selectedValue={toUnit} style={styles.picker} onValueChange={(itemValue: UnitType) => setToUnit(itemValue)}>
             <Picker.Item label="Meters" value="meters" />
             <Picker.Item label="Kilometers" value="kilometers" />
             <Picker.Item label="Miles" value="miles" />
@@ -50,25 +47,17 @@ const LengthScreen = () => {
           </Picker>
         </View>
       </View>
-
-
-      <View style={{ marginTop: 20, flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-evenly' }}>
-        <TextInput style={styles.input} placeholder="Enter value" keyboardType="numeric" value={value} onChangeText={setValue}
-        />
-        <TouchableOpacity onPress={()=>{setValue(''), setResult(null)}}>
-        <Image style={{ height: 30, width: 30, objectFit: 'cover', tintColor: 'blue' }} source={require('../Assets/x.circle.fill.png')} />
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.input} placeholder="Enter value" keyboardType="numeric" value={value} onChangeText={setValue} />
+        <TouchableOpacity onPress={() => { setValue(''); setResult(null); }}>
+          <Image style={styles.clearIcon} source={require('../Assets/x.circle.fill.png')} />
         </TouchableOpacity>
       </View>
-        <Text style={styles.button} onPress={handleConvert}>
-          Convert
-        </Text>
-        {result !== null && (
-          <Text style={styles.result}>
-            Result: {result.toFixed(2)} {toUnit}
-          </Text>
-        )}
-
-    </View>
+      <Text style={styles.button} onPress={() => { handleConvert() }}>Convert</Text>
+      {result !== null && (
+        <Text style={styles.result}>Result: {result.toFixed(2)} {toUnit}</Text>
+      )}
+    </KeyboardAwareScrollView>
   );
 };
 
@@ -80,53 +69,66 @@ const styles = StyleSheet.create({
     position: 'relative'
   },
   title: {
-    fontSize: 30,
-    marginVertical: 30
+    fontSize: width * 0.068, // ~30px on 440px width
+    marginVertical: height * 0.031 // ~30px on 956px height
   },
   input: {
-    backgroundColor:"#ffffff80",
-    height: 50,
-    width: 350,
+    backgroundColor: "#ffffff80",
+    height: height * 0.052, // ~50px
+    width: width * 0.795, // ~350px
     borderColor: 'gray',
     borderWidth: 1,
-    borderRadius:20,
-    paddingHorizontal: 8,
-    paddingVertical: 10,
+    borderRadius: width * 0.045, // ~20px
+    paddingHorizontal: width * 0.018, // ~8px
+    paddingVertical: height * 0.01 // ~10px
   },
   picker: {
-    height: 100,
-    width: 200,
-    marginBottom: 100,
+    height: height * 0.105, // ~100px
+    width: width * 0.455, // ~200px
+    marginBottom: height * 0.105 // ~100px
   },
   eachPicker: {
     alignItems: 'center',
     borderWidth: 1,
     backgroundColor: '#ffffff80',
-    borderRadius: 20,
-    height: 250,
-    paddingVertical: 10
+    borderRadius: width * 0.045, // ~20px
+    height: height * 0.261, // ~250px
+    paddingVertical: height * 0.01 // ~10px
   },
   button: {
-    padding:7,
-    marginTop:30,
-    fontSize: 22,
+    padding: height * 0.007, // ~7px
+    marginTop: height * 0.031, // ~30px
+    fontSize: width * 0.05, // ~22px
     color: 'blue',
     textAlign: 'center',
-    marginBottom: 16,
+    marginBottom: height * 0.017, // ~16px
     borderWidth: 1,
-    width:400,
-    height: 40,
-    backgroundColor:'#ffffff80',
-    borderRadius: 20
+    width: width * 0.909, // ~400px
+    height: height * 0.042, // ~40px
+    backgroundColor: '#ffffff80',
+    borderRadius: width * 0.045 // ~20px
   },
   result: {
-    fontSize: 18,
+    fontSize: width * 0.041, // ~18px
     textAlign: 'center',
-    marginTop: 16,
+    marginTop: height * 0.017 // ~16px
   },
   pickerView: {
     flexDirection: 'row',
-    gap: 10
+    gap: width * 0.023 // ~10px
+  },
+  inputContainer: {
+    marginTop: height * 0.021, // ~20px
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    justifyContent: 'space-evenly'
+  },
+  clearIcon: {
+    height: width * 0.068, // ~30px
+    width: width * 0.068, // ~30px
+    objectFit: 'cover',
+    tintColor: 'blue'
   }
 });
 
