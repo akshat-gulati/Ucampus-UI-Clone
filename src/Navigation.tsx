@@ -11,19 +11,20 @@ import LengthScreen from './QuantityMeasurement/LengthScreen';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-function MyTabs() {
-    return (<NavigationContainer >
-        <Tab.Navigator>
-            <Tab.Screen name="Quantity Measurement" component={StackNavigator} />
-            <Tab.Screen name="Weight" component={Ucampus} options={{ headerShown: false }} />
-        </Tab.Navigator>
-    </NavigationContainer>
+// function MyTabs() {
+//     return (<NavigationContainer >
+//         <Tab.Navigator>
+//             <Tab.Screen name="Quantity Measurement" component={StackNavigator} />
+//             <Tab.Screen name="Weight" component={Ucampus} options={{ headerShown: false }} />
+//         </Tab.Navigator>
+//     </NavigationContainer>
 
-    );
-}
+//     );
+// }
 
 function StackNavigator() {
     return (
+      <NavigationContainer>
       <Stack.Navigator initialRouteName='QuantityHome'>
         <Stack.Screen name="QuantityHome" component={QuantityHome} 
         options={{title: "Home Screen"}}/>
@@ -31,7 +32,8 @@ function StackNavigator() {
         <Stack.Screen name="WeightScreen" component={WeightScreen} />
         <Stack.Screen name="TemperatureScreen" component={TemperatureScreen}/>
       </Stack.Navigator>
+      </NavigationContainer>
     )
   }
 
-export default MyTabs
+export default StackNavigator

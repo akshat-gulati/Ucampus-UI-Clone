@@ -1,6 +1,6 @@
-type LengthUnit = 'meters' | 'kilometers' | 'miles' | 'feet' | 'inches';
+export type UnitType = 'meters' | 'kilometers' | 'miles' | 'feet' | 'inches';
 
-const conversionFactors: { [key in LengthUnit]: number } = {
+export const conversionFactors: { [key in UnitType]: number } = {
     meters: 1,
     kilometers: 1000,
     miles: 1609.34,
@@ -8,12 +8,8 @@ const conversionFactors: { [key in LengthUnit]: number } = {
     inches: 0.0254,
 };
 
-function convertLength(value: number, fromUnit: LengthUnit, toUnit: LengthUnit): number {
+export function convertLength(value: number, fromUnit: UnitType, toUnit: UnitType): number {
     const valueInMeters = value * conversionFactors[fromUnit];
     const convertedValue = valueInMeters / conversionFactors[toUnit];
     return convertedValue;
 }
-
-
-const lengthInKilometers = convertLength(5, 'miles', 'kilometers');
-console.log(lengthInKilometers);
